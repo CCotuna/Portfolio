@@ -1,7 +1,9 @@
 <script setup>
-import HomeView from './views/HomeView.vue';
+import { RouterView } from 'vue-router';
+import NavBar from './components/NavBar.vue';
 </script>
 <template>
-  <HomeView />
+  <NavBar />
+  <RouterView />
 </template>
 <style scoped></style>
