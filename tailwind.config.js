@@ -9,7 +9,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        45: "45deg",
+        360: "360deg",
+      },
+    },
   },
   plugins: [],
 };

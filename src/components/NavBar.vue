@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <nav class="fixed top-0 left-0 w-full z-50 bg-white border-gray-200  overflow-visible">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm border-gray-200 overflow-visible">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative z-10">
             <div class="uppercase font-semibold">
                 Portfolio
@@ -21,7 +21,7 @@
         <!-- Centered circle - middle of navigation bar -->
         <div class="absolute top-[1.85rem] left-1/2 transform -translate-x-1/2 w-24 h-24 bg-black rounded-full z-0">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="200px" height="200px"
-                class="absolute top-[-4rem] left-1/2 transform -translate-x-1/2">
+                class="absolute top-[-4rem] left-1/2 transform -translate-x-1/2 transition-transform duration-500 ease-in-out hover:rotate-360">
                 <!-- Chicken Body -->
                 <g fill="#FFFFFF">
                     <circle cx="32" cy="36" r="10" />
