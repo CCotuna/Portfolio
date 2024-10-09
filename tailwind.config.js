@@ -14,6 +14,11 @@ export default {
         45: "45deg",
         360: "360deg",
       },
+      colors: {
+        brand: {
+          new_color: "#FF6347",
+        },
+      },
     },
   },
   plugins: [],
