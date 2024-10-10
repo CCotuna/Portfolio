@@ -1,6 +1,6 @@
 <template>
     <div class="game-container" @touchstart="jump">
-        <div class="square" :style="{ left: '20px', bottom: `${squareY}px` }"></div>
+        <img class="square" :src="chickenIcon" :style="{ left: '20px', bottom: `${squareY}px` }" alt="Chicken Icon" />
         <div v-for="(obstacle, index) in obstacles" :key="index" class="obstacle"
             :style="{ left: `${obstacle.x}px`, height: '50px', width: '25px' }"></div>
         <div class="score">Score: {{ score }}</div>
@@ -14,6 +14,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import chickenIcon from '@/assets/Chicken Icon Illustration.png';
 
 const squareY = ref(0);
 const isJumping = ref(false);
@@ -26,7 +27,7 @@ const obstacleGap = 200;
 let gameInterval;
 const gameStarted = ref(false);
 const gameOver = ref(false);
-let obstacleSpeed = 10;
+let obstacleSpeed = 8;
 
 const jump = () => {
     if (gameStarted.value && !isJumping.value) {
@@ -53,12 +54,16 @@ const moveObstacles = () => {
     obstacles.value = obstacles.value.filter(obstacle => obstacle.x > -obstacleWidth);
 
     if (obstacles.value.length && obstacles.value[0].x < 0) {
-        score.value += 10;
+        score.value++;
     }
 
-    if (score.value >= 100) {
-        obstacleSpeed = 15;
+    if (score.value >= 50) {
+        obstacleSpeed = 10;
+    } else if (score.value >= 100) {
+        obstacleSpeed = 14;
     }
+
+
 
     if (!isJumping.value) {
         checkCollision();
@@ -115,14 +120,13 @@ onUnmounted(() => {
     height: 400px;
     overflow: hidden;
     background-color: rgb(0, 0, 0);
-    border: 1px solid #000;
+    border: 1px solid #000000;
 }
 
 .square {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: rgb(228, 228, 228);
     left: 20px;
     bottom: 0;
     transition: bottom 0.4s;
@@ -139,7 +143,7 @@ onUnmounted(() => {
     top: 10px;
     left: 10px;
     font-size: 24px;
-    color: #fcfcfc;
+    color: #ffffff;
 }
 
 .start-button {
