@@ -1,0 +1,96 @@
+<template>
+    <div class="card relative bg-black text-white p-6 rounded-xl border border-gray-200 overflow-hidden"
+        @mouseenter="hover = true" @mouseleave="hover = false">
+        <!-- Top Icon using Bootstrap -->
+        <div class="icon-container text-center mb-4">
+            <i class="bi bi-credit-card-2-front-fill fs-2"></i>
+        </div>
+
+        <h2 class="text-xl font-bold mb-2 text-center">Intuitive Dashboard Design</h2>
+        <p class="text-center">Experience an intuitive dashboard design that simplifies navigation and provides
+            at-a-glance insights</p>
+
+        <!-- Left circle (slightly lower) -->
+        <div class="circle-left absolute bg-blue-600 rounded-full" :class="{ 'circle-left-animate': hover }"></div>
+
+        <!-- Right circle (top right, larger) -->
+        <div class="circle-right absolute bg-blue-600 rounded-full" :class="{ 'circle-right-animate': hover }"></div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const hover = ref(false)
+</script>
+
+<style scoped>
+.card {
+    width: 350px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Left Circle */
+.circle-left {
+    width: 50px;
+    height: 50px;
+    top: 40%;
+    left: -25px;
+    transition: all 0.5s ease-in-out;
+}
+
+.circle-left-animate {
+    width: 70px;
+    height: 70px;
+    top: 45%;
+    left: -30px;
+    animation: waterDropLeft 1.5s ease infinite alternate;
+}
+
+/* Right Circle */
+.circle-right {
+    width: 80px;
+    height: 80px;
+    top: -10px;
+    right: -40px;
+    transition: all 0.5s ease-in-out;
+}
+
+.circle-right-animate {
+    width: 100px;
+    height: 100px;
+    top: -15px;
+    right: -45px;
+    animation: waterDropRight 1.5s ease infinite alternate;
+}
+
+/* Animation mimicking water droplets */
+@keyframes waterDropLeft {
+    0% {
+        transform: translateX(0) translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateX(10px) translateY(5px) scale(1.1);
+    }
+}
+
+@keyframes waterDropRight {
+    0% {
+        transform: translateX(0) translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateX(-10px) translateY(-5px) scale(1.1);
+    }
+}
+</style>
